@@ -1,4 +1,0 @@
-<%@Language="VBSCRIPT"%>
-<%
-%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=gb2312"><title>无标题文档</title><link href="admin/zxcss.css" rel="stylesheet" type="text/css"></head><body topmargin="0"><table width="100%"  border="0" cellspacing="0" cellpadding="0"><tr><td width="45%" height="26"><div align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="admin/save_yongyu.asp" target="main11">收款常用语设置</a>&nbsp;</div></td><td width="24%"><div align="center"><a href="admin/print_sz.asp" target="main11">打印发票设置</a></div></td><td width="14%"><a href="#" onClick="parent.main11.focus();parent.main11.print();">打印</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td width="17%"><a href="#" onClick="history.go(-1)">返回</a></td></tr></table></body></html>
