@@ -1,0 +1,302 @@
+package controllers;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import commons.CommonUtil;
+import commons.ImageUtil;
+import commons.Tool;
+
+import models.ChangePhoto;
+import models.Product;
+import models.Types;
+import models.Users;
+import play.mvc.Before;
+import play.mvc.Controller;
+
+/**
+ * 后台管理
+ * @author YangShanCheng
+ */
+public class UserOper extends Controller {
+
+	@Before
+	static void checkAuthentification() {
+		String loginName = session.get("LOGIN_ID");
+		if (StringUtils.isBlank(loginName)) {
+			//String fromUrl = from == null ? request.url : from[0];
+			flash.put("error", "您访问的页面需要登录!");
+			Application.login();
+	    }
+	}
+
+	public static void index(){
+		render();
+	}
+	
+	/**
+	 * 进入公司资料修改页面
+	 */
+	public static void about(){
+		Users user = Users.all().first();
+		Integer uoBar =3;
+		render(user,uoBar);
+	}
+	
+	/**
+	 * 保存公司资料修改
+	 * @param user
+	 */
+	public static void saveUser(Users user){
+		user.save();
+		flash.put("error", "ok");
+		about();
+	}
+	
+	/**
+	 * 公司简介修改
+	 */
+	public static void content(){
+		Users user = Users.all().first();
+		Integer uoBar = 4;
+		render(user,uoBar);
+	}
+	
+	/**
+	 * 保存公司简介修改
+	 * @param user
+	 */
+	public static void saveContent(Users user){
+		user.save();
+		flash.put("error", "ok");
+		content();
+	}
+	
+	/**
+	 * 产品类别管理
+	 */
+	public static void types(){
+		List<Types> list= Types.find("type=null").fetch();
+		for(Types type : list){
+			type.types = Types.find("type.id=?", type.id).fetch();
+		}
+		render(list);
+	}
+	
+	/**
+	 * 保存产品类别
+	 * @param typeId 类别ID
+	 * @param typeName 类别名称
+	 * @param type  产品类型
+	 */
+	public static void saveType(Long typeId,String typeName,Integer type,String typeEname){
+		if(typeName==null||type==null||typeName.equals("")){
+			flash.put("error", "类别信息不能为空,并且产品名称不能为空格");
+		}else{
+			Types types = null;
+			if(type==0){
+				types = Types.findById(typeId);
+				new Types(typeName, types,typeEname).save();
+			}else if(type==1){
+				types = Types.findById(typeId);
+				types.name = typeName;
+				types.eName = typeEname;
+				types.save();
+			}else if(type==2){
+				new Types(typeName, types,typeEname).save();
+			}
+			String str = type==0?"添加":"修改";
+			flash.put("error", "类别信息"+str+"成功!");
+		}
+		types();
+	}
+	
+	/**
+	 * 产品管理
+	 * @param page 当前页码
+	 */
+	public static void products(Integer page){
+		page = page==null? 1 : page;
+		List<Product> list = Product.find("order by id desc").fetch(page,15);
+		Integer uoBar = 2;
+		String pages = Tool.getBootstartPage(page);
+		render(uoBar,list,page,pages);
+	}
+	
+	/**
+	 * 根据父ID 查询子ID 列表
+	 * @param id
+	 */
+	public static void typeByTid(Long id){
+		List<Types> types = Types.find("type.id=?", id).fetch();
+		StringBuilder sr = new StringBuilder();
+		if(types==null||types.size()==0){
+			sr.append("<option value='0'>请选择</option>");
+		}else{
+	        for(Types type : types){
+	        	sr.append("<option value="+type.id+">"+type.name+"</option>");
+	        }	
+		}
+		renderText(sr.toString());
+	}
+	
+	public static void delType(Long tid){
+	     Product.delete("type.id=?", tid);
+	     Types.delete("id=?", tid);
+	     flash.put("error", "删除成功");
+	     types();
+	}
+	
+	/**
+	 * 添加/修改商品
+	 * @param id  商品ID 添加时 ID 为0
+	 */
+	public static void addProduct(Long id){
+		id = id==null?0:id;
+		List<Types> types= Types.find("type=null").fetch();
+		Product p = Product.findById(id);
+		Integer uoBar = 2;
+		render(p,types,uoBar);
+	}
+	
+	/**
+	 * 保存产品
+	 * @param p 产品信息
+	 * @param img 图片信息
+	 * @param childType 所属类别
+	 * @throws IOException
+	 */
+	public static void saveProduct(Product p ,File img,Long childType,File openImg) throws IOException{
+		p.id = p.id==null?0l:p.id; //如果为空 就设置一个 0
+		if((p.id==null||p.id==0l)&& img==null||openImg==null){
+			flash.put("error", "新添加商品，图片不能为空");
+			addProduct(0l);
+		}
+		if(childType==null||childType==0){
+			flash.put("error", "商品类别不能为空,请选择商品类别");
+			addProduct(p.id);
+		}
+		
+		if(img!=null){
+			Integer width = ImageUtil.getWidthIndexOfRoot(img.getPath());
+			Integer height = ImageUtil.getHeightIndexOfRoot(img.getPath());
+			if(width==null||height==null){
+				flash.put("error", "系统无法获取您上传的图片信息!请换一张试试");
+				addProduct(p.id);
+			}else if(width/height!=5/3){
+				flash.put("error", "上传的图片比例必须为 5:3. 比如：500*300。或者 1000*600");
+				addProduct(p.id);
+			}else{
+				p.img =CommonUtil.PRODUCT_UPLOAD_DB + ImageUtil.changeImgSize(img, CommonUtil.PRODUCT_UPLOAD, 500);
+			}
+		}
+		if(openImg!=null){
+			Integer width = ImageUtil.getWidthIndexOfRoot(openImg.getPath());
+			Integer height = ImageUtil.getHeightIndexOfRoot(openImg.getPath());
+			if(width==null||height==null){
+				flash.put("error", "系统无法获取您上传的图片信息!请换一张试试");
+				addProduct(p.id);
+			}else if(width/height!=5/3){
+				flash.put("error", "上传的图片比例必须为 5:3. 比如：500*300。或者 1000*600");
+				addProduct(p.id);
+			}else{
+				p.openImg =CommonUtil.PRODUCT_UPLOAD_DB + ImageUtil.changeImgSize(openImg, CommonUtil.PRODUCT_UPLOAD, 500);
+			}
+		}
+		
+		if(p.id==0l)
+			p.id=null;
+		Types type = Types.findById(childType);
+		p.type = type;
+		p.save();
+		flash.put("error", "商品添加成功!");
+		products(1);
+	}
+	
+	/**
+	 * 根据ID 删除商品
+	 * @param pid  ID 编号
+	 */
+	public static void delProduct(Long pid){
+		pid = pid==null?0l:pid;
+		Product pro = Product.findById(pid);
+		if(pro==null){
+			flash.put("error", "您删除的产品不存在或已经删除!");
+		}else{
+			pro.delete();
+			flash.put("error", "产品删除成功!");
+		}
+		products(1);
+	}
+	
+	public static void changePhoto(){
+		List<ChangePhoto> list = ChangePhoto.all().fetch();
+		Integer uoBar = 8;
+		render(list,uoBar);
+	}
+	
+	public static void delChangePhoto(Long pid){
+		pid = pid==null?0l:pid;
+		ChangePhoto cp = ChangePhoto.findById(pid);
+		if(cp==null){
+			flash.put("error", "您删除的轮转图片不存在或已经删除!");
+		}else{
+			cp.delete();
+			flash.put("error", "轮转图片删除成功!");
+		}
+		changePhoto();
+	}
+	
+	public static void addChangePhoto(Long id){
+		id = id==null?0l:id;
+		ChangePhoto p = ChangePhoto.findById(id);
+		render(p);
+	}
+	
+	public static void saveChangePhoto(ChangePhoto p ,File img) throws IOException{
+		p.id = p.id==null?0l:p.id; //如果为空 就设置一个 0
+		if((p.id==null||p.id==0l)&& img==null){
+			flash.put("error", "新添加轮转图片，图片不能为空");
+			changePhoto();
+		}
+		if(img!=null){
+			Integer width = ImageUtil.getWidthIndexOfRoot(img.getPath());
+			Integer height = ImageUtil.getHeightIndexOfRoot(img.getPath());
+			if(width==null||height==null){
+				flash.put("error", "系统无法获取您上传的图片信息!请换一张试试");
+				changePhoto();
+			}else if(width!=1600||height!=500){
+				flash.put("error", "首页轮转图片尺寸必须为 :1600 * 500");
+				changePhoto();
+			}else{
+				p.url =CommonUtil.PRODUCT_UPLOAD_DB + ImageUtil.changeImgSize(img, CommonUtil.PRODUCT_UPLOAD, 500);
+			}
+		}
+		if(p.id==0l)
+			p.id=null;
+		p.save();
+		flash.put("error", "商品添加成功!");
+		changePhoto();
+	}
+	
+	
+	public static void changePassWord(){
+		Users user = Users.getUser(session);
+		render(user);
+	}
+	
+	public static void savePassWord(String password,String newPass,String surePass){
+		Users user = Users.getUser(session);
+		if(user.password.equals(password)&&newPass!=null&&surePass!=null&&newPass.equals(surePass)){
+			user.password = newPass;
+			user.save();
+			flash.put("error", "登录密码修改成功!");
+		}else{
+			flash.put("error", "登录密码修改失败!密码输入或正确或 新密码输入不一致");
+		}
+		changePassWord();
+	}
+}

@@ -1,0 +1,116 @@
+#{extends '/UserOper/left.html' /}
+#{set title:'Home' /}
+<script type="text/javascript">
+	
+	function edit(id,name,eName,type){
+		$('#typeId').val(id);
+		$('#typeName').val(name);
+		$('#typeEname').val(eName);
+		$('#type').val(type);
+	}
+	
+	function del(id){
+		$('#tid').val(id);
+	}
+</script>
+<div class="row">
+	<div class="span4">
+		<!--Title -->
+		<h2 style="margin-bottom: 25px">
+						产品类别添加/修改
+		</h2>
+		
+  <div class="control-group">
+        #{if flash.get("error")!=null}
+			<label class="btn btn-success disabled">
+				提示:${flash.get("error")}
+			</label>
+		#{/if}
+		#{else}
+		    <label class="btn btn-warning disabled">
+		  		添加或者修改 产品类别信息
+			</label>
+		#{/else}
+  </div>
+
+	
+		<div class="accordion" id="accordion-781608">
+			#{list list,as:'tp'}
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" >
+						${tp.name}
+						<span  data-toggle="collapse" data-parent="#accordion-781608" href="#accordion-element-${tp.id}" style="float: right;width:45px;">展开</span>
+						<span  onclick="edit(${tp.id},'',0)" href="#modal-container-84374"  data-toggle="modal" style="float: right;width:45px;">添加</span>
+					    <span  onclick="edit(${tp.id},'${tp.name}','${tp.eName}',1)"  href="#modal-container-84374"  data-toggle="modal" style="float: right;width:45px;">修改</span>
+				    </a>
+				</div>
+				<div id="accordion-element-${tp.id}" class="accordion-body collapse">
+					#{list tp.types,as:'tps'}
+					<div class="accordion-inner">
+						${tps.name}
+						<a class="accordion-toggle" >
+						<span  onclick="del(${tps.id})"  href="#modal-del-84374"  data-toggle="modal" style="float: right;width:45px;">删除</span>
+					    <span  onclick="edit(${tps.id},'${tps.name}','${tp.eName}',1)"  href="#modal-container-84374"  data-toggle="modal" style="float: right;width:45px;">修改</span>
+				    </a>
+					</div>
+					#{/list}
+				</div>
+			</div>
+			#{/list}
+		</div>
+		
+	<div class="row" style="margin:10px 0">
+		<div class="span9">
+			 <button  onclick="edit('','','',2)" class="btn btn-success" href="#modal-container-84374"  data-toggle="modal" type="button">新加类别</button>
+		</div>
+	</div>
+	
+	</div>
+</div>
+
+<form action="/UserOper/saveType" method="post">
+<div id="modal-container-84374" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">
+			产品类别添加/修改
+		</h3>
+	</div>
+	<div class="modal-body">
+		
+				<fieldset>
+					 <label>类别名称</label>
+					 <input type="hidden" id="typeId" name="typeId" />
+					 <input type="hidden" id="type" name="type" />
+					 <input type="text" id="typeName" name="typeName" />
+				</fieldset>
+				<fieldset>
+					 <label>英文名称</label>
+					 <input type="text" id="typeEname" name="typeEname" />
+				</fieldset>
+	</div>
+	<div class="modal-footer">
+		 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button type="submit" class="btn btn-primary">保存设置</button>
+	</div>
+</div>
+</form>
+
+
+<form action="/UserOper/delType" method="post">
+<div id="modal-del-84374" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">
+			是否确定删除商品类别
+		</h3>
+	</div>
+	<div class="modal-body">
+		<input type="hidden" name="tid" id="tid" />
+				<p class="btn-warning">您是否确定删除该商品类别，删除后 类别下的商品将全部删除!</p>
+	</div>
+	<div class="modal-footer">
+		 <button class="btn" data-dismiss="modal" aria-hidden="true">取消删除</button> <button type="submit" class="btn btn-primary">确定删除</button>
+	</div>
+</div>
+</form>

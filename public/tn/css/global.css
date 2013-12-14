@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+body{ text-align:center; font-family:Arial, Helvetica, sans-serif, sans-serifArial, Helvetica; background:#212121 url(../images/topbg.gif) repeat-x top; }
+body, div, p, ul, li, i, em, span, dd, dt, dl, form, table, th, td, tr, input {
+	border: 0 none;
+    margin: 0;
+    padding: 0;
+	list-style-type:none;
+	font-size:9pt;
+}
+a:link {color: #ffffff; text-decoration: none}
+a:visited {color:#ffffff; text-decoration: none}
+a:hover {color:#eb1c22; text-decoration:none;}
+img{ border:0;}
+ul{ margin:0; padding:0; list-style:none; }
+li{ margin:0; padding:0; }
+dl{ margin:0; padding:0}
+dl dt{ margin:0; padding:0;}
+dl dd{ margin:0; padding:0;}
+.left{ float:left; display:inline;}
+.right{ float:right; display:inline;}
+.overflow{ height:auto; overflow:hidden;}
+.clear{ clear:both;}
+
+
+/* top */
+.top{width:950px; height:32px; line-height:32px; overflow:hidden; margin:0 auto;}
+.toplanguage{ float:left; display:inline; margin-top:3px;}
+.toplanguage img{ margin-right:10px;}
+.topleft{ float:left; display:inline; margin-left:10px; color:#999; font-weight:bold;}
+.toplink{ color:#999;}
+.toplink a:link,.toplink a:visited{ color:#999;}
+.toplink a:hover{ color:#eb1c22;}
+.toplink a{ margin:0 5px;}
+.header{width:950px; height:162px; overflow:hidden; margin:0 auto; position:relative; margin-top:5px;}
+.logo{ margin-top:0px; position:relative; z-index:10; left:5px; top:0; }
+.topsearch{ height:39px;margin-top:40px;}
+.searchexitbox{
+ 	width:476px; padding-left:5px;
+ 	float:right; display:inline;
+ 	border:0px;
+	font-size:14px;
+	vertical-align:middle;
+	height:39px;
+	line-height:39px; 
+	color:#959595;
+	background:url(../images/searchbg.gif) no-repeat left top;
+}
+.searchbtn{ margin-top:1px;
+ 	width:40px; 
+ 	float:right; display:inline;
+ 	height:37px; cursor:pointer;
+	background:url(../images/btn.gif) no-repeat left top;
+	 
+}
+.searchexitbox1{
+ 	width:182px; padding-left:5px;
+ 	float:left; display:inline;
+ 	border:0px;
+	font-size:14px;
+	vertical-align:middle;
+	height:29px;
+	line-height:29px; 
+	color:#959595;
+	background:url(../images/searchbg1.gif) no-repeat left top;
+}
+.searchbtn1{ margin-top:0px;
+ 	width:31px; 
+ 	float:left; display:inline;
+ 	height:29px; cursor:pointer;
+	background:url(../images/btn1.gif) no-repeat left top;
+	 
+}
+
+
+/* menu */
+.menu{width:100%; height:30px; overflow:hidden;  margin:0px auto; position:relative; z-index:5; background:#f02626; margin-top:-45px; }
+.nav{ width:950px; height:30px; line-height:30px; overflow:hidden; margin:0 auto;}
+.nav ul{width:750px; float:right;}
+.nav li{ float:left; display:inline; color:#fff;}
+.nav li a{ padding:0 14px; height:30px; line-height:30px; overflow:hidden; text-align:center; float:left; display:inline;  font-size:15px; font-family:'Roboto Condensed', Tahoma, Geneva, sans-serif;}
+.nav li a:link,.nav li a:visited{ color:#fff;}
+.nav li a:hover{ color:#000; background:#cc3333;}
+
+/* footer */
+#footer{ width:100%; height:auto; overflow:hidden; background:url(../images/footbg.gif); }
+.foot{width:950px; height:auto; overflow:hidden; margin:10px auto;}
+.foot dl{ width:150px; padding:0 20px 0 0px; text-align:left; line-height:1.5em; float:left; display:inline; }
+.foot dl dt{ color:#999; font-size:12px; margin-top:10px;}
+.foot dd{ color:#ccc;}
+.foot dd a{ font-size:8pt;}
+.foot a:link,.foot a:visited{ color:#ccc;}
+.foot a:hover{ color:#f90;}
+.footlogo{ margin:25px 0px 10px 0;}
+.footlogo img{ margin:0 10px;}
+.copyright{ color:#999; text-align:center; margin-bottom:20px; }
+.copyright a:link,.copyright a:visited{ color:#999;}
+.copyright p{ margin-top:10px; line-height:2em; }
+
+
+/* layout */
+.center{width:100%; background:url(../images/bannerbg.gif) no-repeat center top; margin-top:20px;}
+#mainbody{width:950px; height:auto; overflow:hidden; background:#000; margin:0 auto;}
+.leftbar{width:200px; height:auto; overflow:hidden;}
+.rightbar{width:710px; height:auto; overflow:hidden; margin-right:20px;}
+.leftbar1{width:570px; height:auto; overflow:hidden; margin-left:20px;}
+.rightbar1{width:320px; height:auto; overflow:hidden; margin-right:20px; margin-top:-75px;}
+
+
+/* space */
+.m15{ margin-top:15px;}
+.m10{ margin-top:10px;}
+.m20{ margin-top:20px;}
+.m30{ margin-top:30px;}
+.l20{ margin-left:20px;}
+
+/* form */
+.editbox{ height:24px; line-height:24px;}
+.areabox{ overflow-y:auto;}
+.btn{width:151px; height:47px; line-height:47px; text-align:center; font-size:20px; color:#666; margin-top:20px; cursor:pointer; background:url(../images/btnbg.png) no-repeat;}
+.editbox1{width:30px; height:20px; line-height:20px;}
+.btn1{height:28px; line-height:28px; text-align:center; font-size:16px; color:#fff; cursor:pointer; padding:0 20px; background:#47a820;}
+.editbox2{width:356px; height:38px; line-height:38px; background:url(../images/editbg.gif) no-repeat; border:0; color:#999; padding:0 5px;}
+.btn2{width:103px; height:37px; line-height:37px; background:url(../images/btn2.gif) no-repeat; font-size:20px; color:#fff; cursor:pointer;}
+.btn3{width:103px; height:37px; line-height:37px; text-align:center; float:left; display:block; background:url(../images/btn3.gif) no-repeat; font-size:18px; color:#fff; cursor:pointer;}
+
+/* content */
+
+.position{width:100%; text-align:left; font-size:12px; color:#fff; padding-bottom:5px; border-bottom:1px #990000 solid;}
+.ct{width:100%; height:auto; overflow:hidden; margin:0 auto;}
+.ct h3{ text-align:center;width:100%; height:50px; line-height:50px; text-align:left; font-size:24px; color:#fff; margin-top:20px;}
+.ct .info{width:100%; height:30px; line-height:30px; text-align:center; border-bottom:1px #dddddd solid; padding-bottom:10px; font-size:12px; color:#999;}
+.ct .act{width:100%; text-align:left; line-height:2em; font-size:12px; color:#fff; margin:20px auto;}
+.ct .act p{ margin:10px 0;}
+/* page */
+.page{width:100%; height:36px; line-height:36px; background:#666; color:#000; overflow:hidden;}
+.page_left{ margin-left:10px; }
+.page_center{ margin-left:200px;}
+.page_center span{ float:left; display:inline;}
+.page_center select{ float:left; display:inline; margin:8px 0 0 5px;}
+.page_right{ margin-right:10px;}
+.page_right a{ margin:0 3px; color:#000; text-decoration:underline;}
+.page_right span.hid{ color:#000; display:none;}
+.page_right span.curr{ color:#f00; font-weight:bold;}

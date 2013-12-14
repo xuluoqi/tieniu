@@ -1,0 +1,42 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div class="row">
+	<div class="span3">
+		<ul class="nav nav-list" style="padding:15px 25px;border:1px solid #dbdbdb;font-size:12px">
+			<h4>元和后台管理</h4>
+			<li class="divider"> </li>
+			<li class="${uoBar==null||uoBar==1?'active':''}">
+				<a href="/UserOper/types">产品类别管理</a>
+			</li>
+			<li class="${uoBar==2?'active':''}">
+				<a href="/UserOper/products">产品添加/修改</a>
+			</li>
+			<li class="${uoBar==3?'active':''}">
+				<a href="/UserOper/about">公司信息修改</a>
+			</li>
+			<li class="${uoBar==4?'active':''}">
+				<a href="/UserOper/content">公司简介修改</a>
+			</li>
+			<li class="${uoBar==5?'active':''}">
+				<a href="/UserOper/changePassWord">登陆密码重置</a>
+			</li>
+			<li class="${uoBar==8?'active':''}">
+				<a href="/UserOper/changePhoto">轮转图片设置</a>
+			</li>
+            <li class="${uoBar==9?'active':''}">
+                <a href="/UserOper/changeTopPhoto">顶部广告设置</a>
+            </li>
+			<h4>其他设置</h4>
+			<li class="divider"> </li>
+			<li class="${uoBar==6?'active':''}">
+				<a href="#">使用帮助</a>
+			</li>
+			<li class="${uoBar==7?'active':''}">
+				<a href="#">联系客服</a>
+			</li>
+		</ul>
+		
+	</div>
+		#{doLayout /}
+</div>

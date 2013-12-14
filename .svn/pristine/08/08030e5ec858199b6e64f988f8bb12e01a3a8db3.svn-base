@@ -1,0 +1,47 @@
+package models;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import play.db.jpa.Model;
+
+/**
+ * 产品类型
+ * @author YangShanCheng
+ */
+@Entity
+public class Types extends Model {
+
+	public String name; //名称
+	
+	@ManyToOne
+	public Types type; // 父类
+	
+	public String eName; //英文名称
+	
+	@Transient
+	public List<Types> types; //每个类别下面的分类
+
+	public Types(String name, Types type,String eName) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.eName = eName;
+	}
+
+	public Types() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Types(String name, Long id) {
+		super();
+		Types type = Types.findById(id);
+		this.name = name;
+		this.type = type;
+	}
+	
+}

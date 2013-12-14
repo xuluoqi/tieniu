@@ -1,0 +1,51 @@
+#{extends '/UserOper/left.html' /}
+#{set title:'Home' /}
+<div class="row">
+	<div class="span9">
+		<h3>
+			首页轮转图片添加/修改
+		</h3>
+
+	<!--表单开始 -->
+	<div class="row">
+		<div class="span9">
+			<form action="/UserOper/saveChangePhoto" method="post" enctype="multipart/form-data" id="frm" name="frm">
+				<fieldset>
+					 产品名称: 
+					 <input type="hidden" id="id" value="${p?.id}" name="p.id" />
+					 <input type="text" id="name" value="${p?.name}" name="p.name" />
+				</fieldset>
+				<fieldset>
+					 英文名称: 
+					 <input type="text" id="eName" value="${p?.eName}" name="p.eName" />
+				</fieldset>
+				<fieldset>
+					 产品图片: 
+					 <input type="file" id="img" name="img" />
+				</fieldset>
+				<fieldset>
+					 中文简介: 
+					 <textarea id="content" name="p.content" style="width:80%;height:100px" >${p?.content}</textarea>
+				</fieldset>
+				<fieldset>
+					 英文简介: 
+					 <textarea id="eContent" name="p.eContent" style="width:80%;height:100px" >${p?.eContent}</textarea>
+				</fieldset>
+				<fieldset>
+					 <button type="submit" class="btn btn-success" style="margin:15px;padding:5px 20px">确认提交</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	
+		</div>
+	</div>
+	
+	
+<!--添加产品 DIV -->
+
+<script type="text/javascript">
+	$('#sub').click(function(){
+		$('#frm').submit();
+	})	
+</script> 

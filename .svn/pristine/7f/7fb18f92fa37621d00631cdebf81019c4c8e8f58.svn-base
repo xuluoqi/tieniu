@@ -1,0 +1,74 @@
+#{extends '/UserOper/left.html' /}
+#{set title:'Home' /}
+<script type="text/javascript">
+	function sureDel(id) {
+		$('#pid').val(id);
+	}
+</script>
+<div class="row">
+	<div class="span9">
+		<h3> 首页轮转图片设置 </h3>
+
+	<div class="row" style="margin:10px 0">
+		<div class="span9">
+			<a href="/UserOper/addChangePhoto">
+			<button  class="btn btn-success"type="button">
+				添加轮转图片
+			</button></a>
+		</div>
+	</div>
+
+<div class="control-group">
+	#{if flash.get("error")!=null}
+	<label class="btn btn-success disabled"> 提示:${flash.get("error")} </label>
+	#{/if}
+	#{else}
+	<label class="btn btn-warning disabled"> 您可以添加/修改/或者删除轮转图片 </label>
+	#{/else}
+</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th> 图片编号 </th>
+					<th> 图片名称 </th>
+					<th> 操作 </th>
+				</tr>
+			</thead>
+			<tbody>
+				#{list list,as:'img'}
+				<tr>
+					<td> ${img?.id} </td>
+					<td> ${img?.name} </td>
+					<td><a href="/UserOper/addChangePhoto?id=${img?.id}">修改</a><a style="padding-left:25px" onclick="sureDel(${img?.id})" href="#modal-container-84374"  data-toggle="modal">删除</a></td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<form action="/UserOper/delChangePhoto" method="post">
+	<div id="modal-container-84374" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+				×
+			</button>
+			<h3 id="myModalLabel"> 轮转图片删除提示 </h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" name="pid" id="pid" />
+			<p>
+				您是否确定删除该轮转图片!?
+			</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">
+				关闭
+			</button>
+			<button type="submit" class="btn btn-primary">
+				确定删除
+			</button>
+		</div>
+	</div>
+</form>

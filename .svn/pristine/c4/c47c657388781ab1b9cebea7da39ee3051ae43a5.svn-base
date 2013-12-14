@@ -1,0 +1,73 @@
+#{extends '/UserOper/left.html' /}
+#{set title:'Home' /}
+<script type="text/javascript" src="@{'/public/js/editor/kindeditor.js'}"></script> 
+<div class="span9">
+<!--Title -->
+<h2 style="margin-bottom: 25px">
+				日照元和公司资料修改
+</h2>
+
+<form class="form-horizontal" id="frm" name="frm" action="/UserOper/saveContent" method="post">
+  <input type="hidden" name="user.id" value="${user?.id}" />
+  <div class="control-group">
+  	<h5>中文简介</h5>
+        <textarea name="user.content" id="content" style="width:95%;height:200px">${user?.content?.raw()}</textarea>
+  </div>
+  
+   <div class="control-group">
+   	  <h5>英文简介</h5>
+        <textarea name="user.eContent" id="eContent" style="width:95%;height:200px">${user?.eContent?.raw()}</textarea>
+  </div>
+  
+  <div class="control-group">
+        #{if flash.get("error")!=null}
+			<label class="btn btn-success disabled">
+				提示:公司简介修改成功!
+			</label>
+		#{/if}
+		#{else}
+		    <label class="btn btn-warning disabled">
+		  		修改公司简介时,可以添加图片 文字 以及其他样式。
+			</label>
+		#{/else}
+  </div>
+
+  <div class="control-group">
+      <button class="btn" id="sub" type="button">确认修改</button>
+  </div>
+</form>
+</div>     
+
+<script type="text/javascript">
+	
+	var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[id="content"]', {
+					resizeType : 1,
+					allowUpload : false,
+					allowFileManager : false,
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons','link'],
+				});
+			});
+		var editor1;
+			KindEditor.ready(function(K) {
+				editor1 = K.create('textarea[id="eContent"]', {
+					resizeType : 1,
+					allowUpload : false,
+					allowFileManager : false,
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons','link'],
+				});
+			});	
+		
+	$('#sub').click(function(){
+		$('#content').val(editor.html());
+		$('#eContent').val(editor1.html());
+		$('#frm').submit();
+	})	
+    </script>         

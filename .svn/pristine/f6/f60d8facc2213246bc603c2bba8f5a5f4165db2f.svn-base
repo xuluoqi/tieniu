@@ -1,0 +1,72 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<script type="text/javascript">
+	function changeImg(url){
+		 $("#proImg").attr("src", url);
+	}
+	
+</script>
+<div class="container">
+	<div class="row">
+		<div class="span3">
+			<ul class="nav nav-list" style="border:1px solid #dbdbdb">
+				<h4>元和产品列表</h4>
+				<li class="divider"> </li>
+				#{list types,as:'ts'}
+					<h5>${ts.name}</h5>
+					#{list ts.types,as:'cs'}
+					<li  class="${tid==cs.id?'active':''}" style="font-size: 12px">
+						<a href="/Application/products?tid=${cs.id}">${cs.name}</a>
+					</li>
+					#{/list} 
+				#{/list}
+			</ul>
+		</div>
+		<div class="span9">
+			<blockquote>
+				<p>
+					${p.name}
+				</p> 
+			</blockquote>
+			<div class="row">
+				<div class="span6" style="text-align: center">
+					<img alt="140x140" id="proImg" style="width:500px;height:300px" src="${p.img}" /><br><br>
+					<a href="javascript:changeImg('${p.img}')"><img style="width:80px;height:48px;border:1px solid #dbdbdb" src="${p.img}" ></a>&nbsp;&nbsp;
+					<a href="javascript:changeImg('${p.openImg}')"><img style="width:80px;height:48px;border:1px solid #dbdbdb;" src="${p.openImg}"></a>
+				</div>
+				<div class="span3">
+					<dl>
+						<dt>
+							产品名称
+						</dt>
+						<dd>
+							${p?.name}
+						</dd>
+						<dd> &nbsp;</dd>
+						<dt>
+							产品产地
+						</dt>
+						<dd>
+							${p?.address}
+						</dd>
+						<dd> &nbsp;</dd>
+						<dt>
+							产品规格
+						</dt>
+						<dd>
+							${p?.guige}（mm）
+						</dd>
+						<dd> &nbsp;</dd>
+						<dt>
+							产品重量
+						</dt>
+						<dd>
+							${p?.zhong}(KG)
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
