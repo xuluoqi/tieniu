@@ -18,6 +18,7 @@ public class Application extends WebSiteBaseController {
 //    	Users user = Users.all().first();
 //    	List<Product> products = Product.find("order by id desc").fetch(6);
 //        render(changes,types,user,products);
+        //注释啊
         render2();
     }
     
