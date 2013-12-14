@@ -224,7 +224,28 @@
     <favorites_list name="yuanhe" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/defaults/HomePage/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/defaults/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="29" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.7744565">
+              <folding>
+                <marker date="1387015329976" expanded="true" signature="749:812" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -243,13 +264,13 @@
         <option value="$PROJECT_DIR$/conf/application.conf" />
         <option value="$PROJECT_DIR$/app/views/main.html" />
         <option value="$PROJECT_DIR$/app/controllers/base/WebSiteBaseController.java" />
-        <option value="$PROJECT_DIR$/app/views/defaults/main.html" />
         <option value="$PROJECT_DIR$/app/views/defaults/Application/share/top.html" />
         <option value="$PROJECT_DIR$/app/views/defaults/Application/share/footer.html" />
         <option value="$PROJECT_DIR$/app/views/defaults/Application/index.html" />
         <option value="$PROJECT_DIR$/app/controllers/Application.java" />
         <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/controllers/HomePage.java" />
+        <option value="$PROJECT_DIR$/app/views/defaults/main.html" />
       </list>
     </option>
   </component>
@@ -768,15 +789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/defaults/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="68" selection-start="871" selection-end="899" vertical-scroll-proportion="-4.5">
-          <folding>
-            <marker date="1387014857820" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Application/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
@@ -828,6 +840,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="31" selection-start="363" selection-end="363" vertical-scroll-proportion="0.48169014">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/defaults/HomePage/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/defaults/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="29" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.7744565">
+          <folding>
+            <marker date="1387015329976" expanded="true" signature="749:812" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
