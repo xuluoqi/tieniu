@@ -1,0 +1,130 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<script type="text/javascript" src="/public/js/layer/layer.min.js"></script>
+<script type="text/javascript">
+	function bigPhoto(){
+		$.layer({
+	        type : 2,
+	        offset : ['130px' , ''],
+	        shade : [0.8 , '#000' , true],
+	        border : [1 , 0.1 , '#000', true],
+	        title:['',false],
+	        iframe : {
+	            src : '/Application/bigPhoto',
+	        },
+	        area : ['700px','340px']
+   		})
+	}
+	
+</script>
+<div class="row">
+	<div class="span12">
+ <div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+      #{list changes,as:'cs'}	
+      <div class="item ${cs_index==1?'active':''}">
+        <img src="${cs.url}" alt="">
+        <div class="carousel-caption">
+          <h4>${session.get("C_N")==null||session.get("C_N")=='false'?cs?.name:cs?.eName}</h4>
+          <p>${session.get("C_N")==null||session.get("C_N")=='false'?cs?.content:cs?.eContent}</p>
+        </div>
+      </div>
+      #{/list}
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+  </div>
+			<div class="row">
+				<div class="span3">
+					<ul class="nav nav-list" style="padding:15px 25px;border:1px solid #dbdbdb;font-size:12px">
+						<h4>${session.get("C_N")==null||session.get("C_N")=='false'?'产品列表分类':'Product Categories'}</h4>
+						<li class="divider"> </li>
+						#{list types,as:'ts'}
+						<li>
+							<a href="#">${session.get("C_N")==null||session.get("C_N")=='false'?ts?.name:ts?.eName}</a>
+						</li>
+						#{/list}
+					</ul>
+					
+					<dl  style="padding:25px;border:1px solid #dbdbdb;font-size:12px">
+						<h4>
+							${session.get("C_N")==null||session.get("C_N")=='false'?user?.name:user?.eName}
+						</h4>
+						<dd>
+							${session.get("C_N")==null||session.get("C_N")=='false'?'电话':'Tel'}:${user?.phone}
+						</dd>
+						<dd>
+							${session.get("C_N")==null||session.get("C_N")=='false'?'地址':'Address'}:${session.get("C_N")==null||session.get("C_N")=='false'?user?.address:user?.eAddress}
+						</dd>
+						<dd>
+							${session.get("C_N")==null||session.get("C_N")=='false'?'联系人':'Contact'}:${session.get("C_N")==null||session.get("C_N")=='false'?user?.contact:user?.eContact}
+						</dd>
+						<dd>
+							${session.get("C_N")==null||session.get("C_N")=='false'?'传真':'Fax'}:${user?.fax}
+						</dd>
+						<dd>
+							${session.get("C_N")==null||session.get("C_N")=='false'?'邮箱':'Email'}:${user?.email}
+						</dd>
+						<dd>
+							${session.get("C_N")==null||session.get("C_N")=='false'?'邮政编码':'Zips'}:${user?.zips}
+						</dd>
+					</dl>
+				</div>
+				<div class="span9">
+					<ul class="thumbnails">
+						#{ifnot products}
+							#{list 1..6,as:'i'}
+							<li class="span3" style="width:270px">
+								<div class="thumbnail">
+									<img alt="300x200" style="width:270px;height:116px" src="/public/images/test.jpg" />
+									<div class="caption">
+										<h3>
+											产品名称
+										</h3>
+										<p>
+											<a class="btn" href="#">产品详情</a>
+										</p>
+									</div>
+								</div>
+							</li>
+							#{/list}
+						#{/ifnot}
+						#{else}
+						   #{list products,as:'ps'}
+							<li class="span3" style="width:270px">
+								<div class="thumbnail">
+									<img alt="300x200" style="width:270px;height:162px" src="${ps.img}" />
+									<div class="caption">
+										<p>
+											 <a class="btn" href="/Application/view?id=${ps.id}">${session.get("C_N")==null||session.get("C_N")=='false'?'产品详情':'Details'}</a>
+										     <a href="#">${ps.guige}</a>
+										</p>
+									</div>
+								</div>
+							</li>
+							#{/list}
+							#{if 7 > products.size()}
+								#{list products.size()..5,as:'i'}
+								<li class="span3" style="width:270px">
+									<div class="thumbnail">
+										<img alt="300x200" style="width:270px;height:116px" src="/public/images/test.jpg" />
+										<div class="caption">
+											<h3>
+												产品名称
+											</h3>
+											<p>
+												<a class="btn btn-primary" href="#">大图浏览</a> <a class="btn" href="#">产品详情</a>
+											</p>
+										</div>
+									</div>
+								</li>
+								#{/list}
+							#{/if}
+						#{/else}	
+					</ul>
+				</div>
+			</div>
+
+
+	</div>
+</div>

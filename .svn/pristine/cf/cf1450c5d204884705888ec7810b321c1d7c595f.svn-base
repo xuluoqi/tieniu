@@ -1,0 +1,82 @@
+#{extends '/UserOper/left.html' /}
+#{set title:'Home' /}
+<script type="text/javascript">
+	function toPage(page) {
+		document.location.href = "/UserOper/products?page=" + page;
+	}
+
+	function sureDel(id) {
+		$('#pid').val(id);
+	}
+
+</script>
+<div class="row">
+	<div class="span9">
+		<h3> 元和产品管理列表 </h3>
+
+		<div class="row" style="margin:10px 0">
+			<div class="span9">
+				<a href="/UserOper/addProduct">
+				<button  class="btn btn-success"type="button">
+					添加产品
+				</button></a>
+			</div>
+		</div>
+
+		<div class="control-group">
+			#{if flash.get("error")!=null}
+			<label class="btn btn-success disabled"> 提示:${flash.get("error")} </label>
+			#{/if}
+			#{else}
+			<label class="btn btn-warning disabled"> 修改或删除产品信息 </label>
+			#{/else}
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th> 商品编号 </th>
+					<th> 商品名称 </th>
+					<th> 商品规格 </th>
+					<th> 操作 </th>
+				</tr>
+			</thead>
+			<tbody>
+				#{list list,as:'pro'}
+				<tr>
+					<td> ${pro?.id} </td>
+					<td> ${pro?.name} </td>
+					<td> ${pro?.guige} </td>
+					<td><a href="/UserOper/addProduct?id=${pro?.id}">修改</a><a style="padding-left:25px" onclick="sureDel(${pro?.id})" href="#modal-container-84374"  data-toggle="modal">删除</a></td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+		${pages?.raw()}
+
+	</div>
+</div>
+
+<form action="/UserOper/delProduct" method="post">
+	<div id="modal-container-84374" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+				×
+			</button>
+			<h3 id="myModalLabel"> 产品删除提示 </h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" name="pid" id="pid" />
+			<p>
+				您是否确定删除该商品!?
+			</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">
+				关闭
+			</button>
+			<button type="submit" class="btn btn-primary">
+				确定删除
+			</button>
+		</div>
+	</div>
+</form>

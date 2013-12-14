@@ -1,0 +1,73 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<script type="text/javascript">
+	function toPage(page){
+		document.location.href="/Application/products?tid=${tid}&page="+page;
+	}
+	
+	
+</script>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<div class="span3">
+					<ul class="nav nav-list" style="border:1px solid #dbdbdb">
+						<h4>${session.get("C_N")==null||session.get("C_N")=='false'?'元和产品类别':'YuanHe Product Type'}</h4>
+						<li class="divider"> </li>
+						#{list types,as:'ts'}
+							<h5><span style="cursor: pointer;" onclick="document.location.href='/Application/products?tid=${ts.id}'"> ${session.get("C_N")==null||session.get("C_N")=='false'?ts?.name:ts?.eName}</span></h5>
+							#{list ts.types,as:'cs'}
+							<li  class="${tid==cs.id?'active':''}" style="font-size:12px">
+								<a href="/Application/products?tid=${cs.id}">${session.get("C_N")==null||session.get("C_N")=='false'?cs.name:cs.eName}</a>
+							</li>
+							#{/list} 
+						#{/list}
+					</ul>
+				</div>
+				<div class="span9">
+					<ul class="thumbnails">
+						#{ifnot products}
+							#{list 1..9,as:'i'}
+							<li class="span3" style="width:270px">
+								<div class="thumbnail">
+									<img alt="300x200" style="width:270px;height:116px" src="/public/images/test.jpg" />
+									<div class="caption">
+										<h3>
+											产品名称
+										</h3>
+										<p>
+											<a class="btn" href="#">产品详情</a>
+										</p>
+									</div>
+								</div>
+							</li>
+							#{/list}
+						#{/ifnot}
+						#{else}
+						   #{list products,as:'ps'}
+							<li class="span3" style="width:270px">
+								<div class="thumbnail">
+									 <a href="/Application/view?id=${ps.id}"><img alt="300x200" style="width:270px;height:164px" src="${ps.img}" /></a>
+									<div class="caption">
+                                        <p>
+										<div style="font-size: 16px;font-weight: 800;float: left;width: 150px">
+											${session.get("C_N")==null||session.get("C_N")=='false'?ps.name:ps.eName}
+										</div>
+											${ps.guige}
+										</p>
+                                        <p>
+                                            <a class="btn" href="/Application/view?id=${ps.id}">产品详情</a>
+                                        </p>
+									</div>
+								</div>
+							</li>
+							#{/list}
+						#{/else}
+					</ul>
+					${pages?.raw()}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

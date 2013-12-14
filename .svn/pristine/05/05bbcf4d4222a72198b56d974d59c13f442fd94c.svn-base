@@ -1,0 +1,97 @@
+#{extends '/UserOper/left.html' /}
+#{set title:'Home' /}
+<script type="text/javascript">
+	function changeType(id){
+		$.ajax({ 
+			url: "/UserOper/typeByTid",
+			data:{id:id}, 
+			success: function(data){
+        		$('#childType').html(data);
+      }});
+	}
+</script>
+<div class="row">
+		<div class="span9">
+			<h3>
+				元和产品添加/修改
+			</h3>
+<div class="control-group">
+        #{if flash.get("error")!=null}
+			<label class="btn btn-primary disabled">
+				${flash.get("error")}
+			</label>
+		#{/if}
+		#{else}
+		    <label class="btn btn-warning disabled">
+		  		请填写商品信息
+			</label>
+		#{/else}
+</div>
+	<!--表单开始 -->
+	<div class="row">
+		<div class="span9">
+			<form action="/UserOper/saveProduct" method="post" enctype="multipart/form-data" id="frm" name="frm">
+				<fieldset>
+					 产品名称: 
+					 <input type="hidden" id="id" value="${p?.id}" name="p.id" />
+					 <input type="text" id="name" value="${p?.name}" name="p.name" />
+				</fieldset>
+				<fieldset>
+					 英文名称: 
+					 <input type="text" id="eName" value="${p?.eName}" name="p.eName" />
+				</fieldset>
+				<fieldset>
+					 产品类别: 
+					<select style="width:150px" onchange="changeType(this.value)"> 
+						<option value="0">请选择</option>
+					   #{list types,as:'ts'}
+					     <option value="${ts.id}">${ts.name}</option>	
+					   #{/list}  
+					</select>
+					<select  style="width:150px" id="childType" name="childType" style="padding-left: 20px">
+						<option value="0">请选择父类</option> 
+					</select>
+				</fieldset>
+				<fieldset>
+					 闭合图片: 
+					 <input type="file" id="img" name="img" />
+				</fieldset>
+				<fieldset>
+					 张开图片: 
+					 <input type="file" id="openImg" name="openImg" />
+				</fieldset>
+				<fieldset>
+					 产品规格: 
+					 <input type="text" value="${p?.guige}" id="guige" name="p.guige" />
+				</fieldset>
+				<fieldset>
+					 产品重量: 
+					 <input type="text" value="${p?.zhong}"  id="zhong" name="p.zhong" />
+				</fieldset>
+				<fieldset>
+					 产品产地: 
+					 <input type="text" value="${p?.address}"  id="chandi" name="p.address" />
+				</fieldset>
+				<fieldset>
+					 <button type="submit" class="btn btn-success" style="margin:15px;padding:5px 20px">确认提交</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	
+		</div>
+	</div>
+	
+	
+<!--添加产品 DIV -->
+
+<script type="text/javascript">
+	$('#sub').click(function(){
+		$('#frm').submit();
+	})	
+	
+	var type = '${p?.productType?.name}';
+	if(type!=null&&type!=''){
+		$('#childType').html('<option value="${p?.productType?.id}">${p?.productType?.name}</option>');
+	}
+    </script> 

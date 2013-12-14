@@ -1,0 +1,66 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<div class="row">
+	<div class="span3">
+			<ul class="nav nav-list" style="border:1px solid #dbdbdb">
+						<h4>${session.get("C_N")==null||session.get("C_N")=='false'?'联系我们':'Contact'}</h4>
+						<li class="divider"> </li>
+						<h5>${session.get("C_N")==null||session.get("C_N")=='false'?'元和产品分类':'YuanHe Product Type'}</h5>
+						#{list types,as:'ts'}
+						<li>
+							<a href="/Application/products?tid=${ts.id}">${session.get("C_N")==null||session.get("C_N")=='false'?ts?.name:ts?.eName}</a>
+						</li>
+						#{/list}
+						<li class="divider"> </li>
+						<h5>${session.get("C_N")==null||session.get("C_N")=='false'?'快捷链接':'Quick links'}</h5>
+						<li class="divider"> </li>
+						<li>
+							<a href="/Application/index" style="font-size: 12px">${session.get("C_N")==null||session.get("C_N")=='false'?'元和首页':'Home'}</a>
+						</li>
+						<li>
+							<a href="/Application/products" style="font-size: 12px">${session.get("C_N")==null||session.get("C_N")=='false'?'元和产品':'Products'}</a>
+						</li>
+						<li>
+							<a href="/Application/about" style="font-size: 12px">${session.get("C_N")==null||session.get("C_N")=='false'?'关于元和':'About'}</a>
+						</li>
+						<li>
+							<a href="/Application/messages" style="font-size: 12px">${session.get("C_N")==null||session.get("C_N")=='false'?'联系元和':'Contact'}</a>
+						</li>
+			</ul>
+		</div>
+		
+		
+		
+		<div class="span9">
+			<h2>
+				${user?.name}
+			</h2>
+			<p>
+				${user?.eName}
+			</p>
+			<dl>
+				<dd style="line-height: 30px">
+					${session.get("C_N")==null||session.get("C_N")=='false'?'电话':'Tel'}:${user?.phone}
+				</dd>
+				<dd style="line-height: 30px">
+					${session.get("C_N")==null||session.get("C_N")=='false'?'电话':'Tel'}:${user?.phone}
+				</dd>
+				<dd style="line-height: 30px">
+					${session.get("C_N")==null||session.get("C_N")=='false'?'地址':'Address'}:${session.get("C_N")==null||session.get("C_N")=='false'?user?.address:user?.eAddress}
+				</dd>
+				<dd style="line-height: 30px">
+					${session.get("C_N")==null||session.get("C_N")=='false'?'联系人':'Contact'}:${session.get("C_N")==null||session.get("C_N")=='false'?user?.contact:user?.eContact}
+				</dd>
+				<dd style="line-height: 30px">
+					${session.get("C_N")==null||session.get("C_N")=='false'?'传真':'Fax'}:${user?.fax}
+				</dd>
+				<dd style="line-height: 30px">
+					${session.get("C_N")==null||session.get("C_N")=='false'?'邮箱':'Email'}:${user?.email}
+				</dd>
+				<dd style="line-height: 30px">
+					${session.get("C_N")==null||session.get("C_N")=='false'?'邮政编码':'Zips'}:${user?.zips}
+				</dd>
+			</dl> <address> <strong>${user?.eName}</strong><br /> <br /> </address>
+		</div>
+
+	</div>

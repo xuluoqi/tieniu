@@ -1,0 +1,9 @@
+#{extends '/UserOper/left.html' /}
+#{set title:'Home' /}
+	<div class="span9">
+		<ul class="thumbnails">
+			<li class="span3" style="width:270px">
+				欢迎管理员登录!
+			</li>
+		</ul>
+	</div>

@@ -1,0 +1,56 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .form-signin {
+        max-width: 300px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+
+    </style>
+
+<div class="container">
+
+      <form class="form-signin" action="/Application/saveLogin" method="post">
+        <h2 class="form-signin-heading">请登录 </h2>
+        <input type="text" name="email" class="input-block-level" placeholder="请输入邮箱账号 @">
+        <input type="password" name="password" class="input-block-level" placeholder="登录密码">
+        #{if flash.get("error")!=null}
+	        <label class="btn btn-danger disabled">
+	        	提示:${flash.get("error")}
+	        </label>
+        #{/if}
+        #{else}
+	        <label class="btn btn-warning disabled">
+	          		您访问的页面需要登录.
+	        </label>
+        #{/else}
+        <br><br>
+        <button class="btn btn-large btn-primary" type="submit">登录</button>
+      </form>
+
+    </div> 
