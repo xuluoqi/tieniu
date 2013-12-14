@@ -1,0 +1,3 @@
+<%@Language="VBSCRIPT"%>
+<%
+%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=gb2312"><title>供应商交易记录</title></head><frameset rows="30,*" cols="*" framespacing="1" frameborder="NO" border="1"><frame src="zgbb_top.asp" name="top" scrolling="NO" noresize id="top" ><frame src="zgbb_print.asp" name="main11" id="main11"></frameset><noframes><body></body></noframes></html>
