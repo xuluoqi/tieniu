@@ -1,6 +1,5 @@
 package controllers;
 
-import controllers.base.WebSiteBaseController;
 import play.mvc.*;
 
 import java.util.*;
@@ -10,19 +9,19 @@ import commons.Tool;
 import models.*;
 
 @With(TopPhotos.class)
-public class Application extends WebSiteBaseController {
+public class Application  extends Controller  {
 
     public static void index() {
-//    	List<ChangePhoto> changes = ChangePhoto.all().fetch();
-//    	List<ProductTypes> types = ProductTypes.find("type=null").fetch();
-//    	Users user = Users.all().first();
-//    	List<Product> products = Product.find("order by id desc").fetch(6);
-//        render(changes,types,user,products);
-        //注释啊
-        render2();
+    	List<ChangePhoto> changes = ChangePhoto.all().fetch();
+    	List<ProductTypes> types = ProductTypes.find("type=null").fetch();
+    	Users user = Users.all().first();
+    	List<Product> products = Product.find("order by id desc").fetch(6);
+        render(changes, types, user, products);
     }
-    
-    
+
+
+
+
     public static void products(Integer page,Long tid){
     	page = page==null?1:page;
     	Integer bar =2;

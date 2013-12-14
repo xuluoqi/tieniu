@@ -13,3 +13,6 @@ GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+
+# Home page
+GET     /home                                       HomePage.index
