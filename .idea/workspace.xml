@@ -12,7 +12,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/img/6709.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/img/6733.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/img/6747.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/Application" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/HomePage" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/img/PullupRigs-th.jpg" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/img/Speed_agility-th_1.jpg" />
@@ -92,7 +91,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/img/rowers-th.jpg" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/images/searchbg.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/images/searchbg1.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/Application/share" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/HomePage/share" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/images/ship-ico-cart-free.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/images/spr.png" />
@@ -110,10 +108,8 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/HomePage.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/base/WebSiteBaseController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/js/csshover.htc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/Application/share/footer.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/HomePage/share/footer.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/css/global.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/Application/index.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/HomePage/index.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/js/jquery-1.4.3.min.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/js/jquery.js" />
@@ -123,7 +119,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/main.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/js/script.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tn/js/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/Application/share/top.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/defaults/HomePage/share/top.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Application.java" afterPath="$PROJECT_DIR$/app/controllers/Application.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Application/index.html" afterPath="$PROJECT_DIR$/app/views/Application/index.html" />
@@ -229,76 +224,7 @@
     <favorites_list name="yuanhe" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Application.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="45" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#661#670#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Product.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="30" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="top.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/defaults/Application/share/top.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="45" selection-start="1347" selection-end="1347" vertical-scroll-proportion="-3.1785715">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebSiteBaseController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/base/WebSiteBaseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="54" selection-start="201" selection-end="221" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomePage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/HomePage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="18" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="top.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/defaults/HomePage/share/top.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/routes">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="60" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -842,16 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/defaults/Application/share/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="58" selection-start="3311" selection-end="3311" vertical-scroll-proportion="-8.107142">
-          <folding>
-            <element signature="n#style#0;n#dl#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#1;n#dl#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/defaults/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="68" selection-start="871" selection-end="899" vertical-scroll-proportion="-4.5">
@@ -868,31 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/defaults/Application/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="0" selection-start="15228" selection-end="15228" vertical-scroll-proportion="-9.107142">
-          <folding>
-            <element signature="tag#script#0" expanded="false" />
-            <element signature="tag#div#0;tag#div#0" expanded="false" />
-            <element signature="tag#div#1;tag#div#0" expanded="false" />
-            <element signature="tag#ul#0;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#2;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#1;tag#div#2;tag#div#0" expanded="false" />
-            <element signature="tag#ul#0;tag#div#2;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#2;tag#div#2;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#3;tag#div#2;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#4;tag#div#2;tag#div#0" expanded="false" />
-            <element signature="tag#div#5;tag#div#2;tag#div#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/base/WebSiteBaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="54" selection-start="201" selection-end="221" vertical-scroll-proportion="0.0">
@@ -904,7 +795,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="60" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
+        <state line="17" column="60" selection-start="541" selection-end="541" vertical-scroll-proportion="0.81565654">
           <folding />
         </state>
       </provider>
@@ -926,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/defaults/Application/share/top.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="45" selection-start="1347" selection-end="1347" vertical-scroll-proportion="-3.1785715">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/HomePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="18" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
@@ -942,7 +826,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/defaults/HomePage/share/top.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="9" column="31" selection-start="363" selection-end="363" vertical-scroll-proportion="0.48169014">
           <folding />
         </state>
       </provider>
